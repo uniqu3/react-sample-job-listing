@@ -1,9 +1,24 @@
 import React from 'react';
 
-export default function Job({ job }) {
+import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
+
+export default function Job({ job, onClick }) {
     return (
-        <div className="item">
-            <span>{job.title}</span> <span>{job.company}</span>
-        </div>
+        <Paper onClick={onClick} className="item">
+            <div>
+                <Typography variant="h5">{job.title}</Typography>
+                <Typography variant="h6">{job.company}</Typography>
+                <Typography>{job.location}</Typography>
+            </div>
+            <div>
+                <Typography>
+                    {job.created_at
+                        .split(' ')
+                        .slice(0, 3)
+                        .join(' ')}
+                </Typography>
+            </div>
+        </Paper>
     );
 }
