@@ -13,7 +13,6 @@ async function fetchJobs(updateCb) {
     const json = await res.json();
 
     updateCb(json);
-    //console.log({ json });
 }
 
 function App() {
